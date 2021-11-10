@@ -1,0 +1,62 @@
+/* @font-face {
+  font-family: "Poppins";
+  src: local("Poppins"), url(./fonts/Poppins-Medium.otf) format("opentype");
+} */
+
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@500&display=swap");
+
+* {
+  font-family: "Poppins", sans-serif !important;
+}
+
+.ck-editor__editable_inline {
+  min-height: 400px;
+}
+.templateForm {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 10px;
+}
+.templateForm > label {
+  padding: 5px;
+}
+.templateForm > input {
+  width: 87%;
+  border: none;
+  outline: none;
+  padding: 5px;
+}
+
+.excelbutton {
+  background-color: #4caf50; /* Green */
+  border: none;
+  color: white;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin-bottom: 10px;
+  float: right;
+  cursor: pointer;
+  width: 100%;
+}
+
+.MuiStep-vertical {
+  margin-top: 15px !important;
+}
+.MuiStepLabel-root {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+.MuiStepLabel-alternativeLabel {
+  margin-top: 0 !important;
+  margin-left: 10px;
+}
+
+
+.backgroundColor {
+  background-color: #FF402B; 
+  color: #fff;
+}
