@@ -51,7 +51,7 @@ export default function RegisterForm() {
             sessionStorage.setItem("userEmail", user.email);
             sessionStorage.setItem("userName", user.displayName);
             setFormData(initialState);
-            navigate("/dashboard", { replace: true });
+            navigate("/dashboard/contacts", { replace: true });
           })
           .catch((err) => console.log(err));
       })

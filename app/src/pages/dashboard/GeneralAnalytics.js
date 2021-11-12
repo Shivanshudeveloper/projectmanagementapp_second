@@ -72,10 +72,6 @@ export default function GeneralAnalytics() {
           <Grid item xs={12} md={6} lg={8}>
             <AnalyticsTasks />
           </Grid>
-
-          <Grid item xs={12} md={6} lg={8}>
-            <AnalyticsConversionRates />
-          </Grid>
         </Grid>
       </Container>
     </Page>
