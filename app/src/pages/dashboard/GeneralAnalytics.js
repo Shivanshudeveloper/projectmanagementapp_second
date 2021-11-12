@@ -4,6 +4,7 @@ import LinearProgress from '@material-ui/core/LinearProgress';
 
 import { Box, Chip, Grid, Container, Typography } from '@material-ui/core';
 import { Card, CardHeader } from '@material-ui/core';
+import DashboardNavbar from "../../layouts/dashboard/DashboardNavbar";
 
 // components
 import Page from '../../components/Page';
@@ -51,6 +52,7 @@ export default function GeneralAnalytics() {
   const classes = useStyles();
   return (
     <>
+    <DashboardNavbar />
     <Page className="backgroundColor" title="General: Analytics | Minimal-UI">
       <Container maxWidth="xl">
         <Box sx={{ pb: 5 }}>

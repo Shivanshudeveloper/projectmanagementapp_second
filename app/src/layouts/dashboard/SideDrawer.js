@@ -127,7 +127,7 @@ export default function SideDrawer() {
     <div className={classes.root}>
       <CssBaseline />
 
-      <DashboardNavbar onClick={handleDrawerOpen} />
+      {/* <DashboardNavbar onClick={handleDrawerOpen} /> */}
       <Drawer
         variant="permanent"
         className={clsx(classes.drawer, {
