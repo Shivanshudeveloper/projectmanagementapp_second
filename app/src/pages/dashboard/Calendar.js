@@ -1,3 +1,4 @@
+import React from 'react';
 import FullCalendar from '@fullcalendar/react'; // => request placed at the top
 import listPlugin from '@fullcalendar/list';
 import dayGridPlugin from '@fullcalendar/daygrid';
@@ -10,6 +11,13 @@ import { Icon } from '@iconify/react';
 import { useSnackbar } from 'notistack';
 import plusFill from '@iconify/icons-eva/plus-fill';
 import { useState, useRef, useEffect } from 'react';
+
+import Dialog from '@material-ui/core/Dialog';
+import DialogActions from '@material-ui/core/DialogActions';
+import DialogContent from '@material-ui/core/DialogContent';
+import DialogContentText from '@material-ui/core/DialogContentText';
+
+
 // material
 import { useTheme } from '@material-ui/core/styles';
 import { Card, Button, Container, DialogTitle, useMediaQuery } from '@material-ui/core';
@@ -45,6 +53,16 @@ export default function Calendar() {
   const [view, setView] = useState(isMobile ? 'dayGridMonth' : 'dayGridMonth');
   const selectedEvent = useSelector(selectedEventSelector);
   const { events, isOpenModal, selectedRange } = useSelector((state) => state.calendar);
+
+  const [open, setOpen] = React.useState(false);
+
+  const handleClickOpen = () => {
+    setOpen(true);
+  };
+
+  const handleClose = () => {
+    setOpen(false);
+  };
 
   useEffect(() => {
     dispatch(getEvents());
@@ -157,6 +175,40 @@ export default function Calendar() {
 
   return (
     <>
+    <Dialog
+        open={open}
+        fullWidth
+        maxWidth="sm"
+        onClose={handleClose}
+        aria-labelledby="alert-dialog-title"
+        aria-describedby="alert-dialog-description"
+      >
+        <DialogTitle id="alert-dialog-title">Event Details</DialogTitle>
+        <DialogContent>
+          <h3>
+            Title is here
+          </h3>
+          <br />
+
+          <h3>
+            11/11/2021 07:48 AM
+          </h3>
+          <br />
+
+          <h5>
+          Lorem Ipsum is simply dummy text of the printing and typesetting industry. 
+          Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
+          </h5>
+
+
+        </DialogContent>
+        <DialogActions>
+          <Button onClick={handleClose} color="primary" autoFocus>
+            Close
+          </Button>
+        </DialogActions>
+    </Dialog>
+
     <Page title="Calendar">
       <Container maxWidth="xl">
         <HeaderBreadcrumbs
@@ -203,7 +255,12 @@ export default function Calendar() {
                   editable
                   droppable
                   selectable
-                  events={events}
+                  events={[
+                    { title: '🔴This is a event 1', date: '2021-10-01' },
+                    { title: '🌟Call', date: '2021-11-21' },
+                    { title: '🌟Work', date: '2021-11-16' },
+                    { title: '🌟Done', date: '2021-11-10' }
+                  ]}
                   ref={calendarRef}
                   rerenderDelay={10}
                   initialDate={date}
@@ -215,7 +272,7 @@ export default function Calendar() {
                   eventResizableFromStart
                   select={handleSelectRange}
                   eventDrop={handleDropEvent}
-                  eventClick={handleSelectEvent}
+                  eventClick={handleClickOpen}
                   eventResize={handleResizeEvent}
                   height={isMobile ? 'auto' : 720}
                   plugins={[listPlugin, dayGridPlugin, timelinePlugin, timeGridPlugin, interactionPlugin]}
@@ -239,10 +296,10 @@ export default function Calendar() {
                   droppable
                   selectable
                   events={[
-                    { title: 'This is a event 1', date: '2021-10-01' },
-                    { title: 'Call', date: '2021-10-28' },
-                    { title: 'Work', date: '2021-10-06' },
-                    { title: 'Done', date: '2021-10-12' }
+                    { title: '🌟This is a event 1', date: '2021-10-01' },
+                    { title: '🌟Call', date: '2021-11-28' },
+                    { title: '🔴Work', date: '2021-11-19' },
+                    { title: '🌟Done', date: '2021-11-12' }
                   ]}
                   ref={calendarRef}
                   rerenderDelay={10}
@@ -255,7 +312,7 @@ export default function Calendar() {
                   eventResizableFromStart
                   select={handleSelectRange}
                   eventDrop={handleDropEvent}
-                  eventClick={handleSelectEvent}
+                  eventClick={handleClickOpen}
                   eventResize={handleResizeEvent}
                   height={isMobile ? 'auto' : 720}
                   plugins={[listPlugin, dayGridPlugin, timelinePlugin, timeGridPlugin, interactionPlugin]}
