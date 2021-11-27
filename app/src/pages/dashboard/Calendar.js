@@ -20,7 +20,7 @@ import DialogContentText from '@material-ui/core/DialogContentText';
 
 // material
 import { useTheme } from '@material-ui/core/styles';
-import { Card, Button, Container, DialogTitle, useMediaQuery } from '@material-ui/core';
+import { Card, Button, Container, DialogTitle, useMediaQuery, Switch, FormControlLabel } from '@material-ui/core';
 // redux
 import { useDispatch, useSelector } from '../../redux/store';
 import { getEvents, openModal, closeModal, updateEvent, selectEvent, selectRange } from '../../redux/slices/calendar';
@@ -32,6 +32,19 @@ import { DialogAnimate } from '../../components/animate';
 import HeaderBreadcrumbs from '../../components/HeaderBreadcrumbs';
 import { CalendarForm, CalendarStyle, CalendarToolbar } from '../../components/_dashboard/calendar';
 import Appbar from '../../components/Appbar';
+import ColorSinglePicker from '../../components/ColorSinglePicker';
+
+// ----------------------------------------------------------------------
+
+const COLOR_OPTIONS = [
+  '#00AB55', // theme.palette.primary.main,
+  '#1890FF', // theme.palette.info.main,
+  '#94D82D', // theme.palette.success.main,
+  '#FFC107', // theme.palette.warning.main,
+  '#FF4842', // theme.palette.error.main
+  '#04297A', // theme.palette.info.darker
+  '#7A0C2E' // theme.palette.error.darker
+];
 
 // ----------------------------------------------------------------------
 
@@ -52,7 +65,7 @@ export default function Calendar() {
   const [date, setDate] = useState(new Date());
   const [view, setView] = useState(isMobile ? 'dayGridMonth' : 'dayGridMonth');
   const selectedEvent = useSelector(selectedEventSelector);
-  const { events, isOpenModal, selectedRange } = useSelector((state) => state.calendar);
+  const { events, isOpenModal, selectedRange } = useSelector((state) =>  state.calendar);
 
   const [open, setOpen] = React.useState(false);
 
@@ -185,21 +198,23 @@ export default function Calendar() {
       >
         <DialogTitle id="alert-dialog-title">Event Details</DialogTitle>
         <DialogContent>
-          <h3>
-            Title is here
-          </h3>
-          <br />
+          
+          <TextField sx={{ mt: 4 }} value="Title Test" fullWidth id="outlined-basic" label="Title" variant="outlined" />
+          
 
-          <h3>
-            11/11/2021 07:48 AM
-          </h3>
-          <br />
+          <TextField sx={{ mt: 4 }} multiline rows={4} value="Lorem Ipsum is simply dummy text of the printing and typesetting industry. 
+          Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum." 
+          fullWidth id="outlined-basic" label="Description" variant="outlined" />
+          
+          <FormControlLabel  sx={{ mt: 4 }} control={<Switch checked={true} />} label="All day" />
 
-          <h5>
-          Lorem Ipsum is simply dummy text of the printing and typesetting industry. 
-          Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
-          </h5>
+          <TextField sx={{ mt: 4 }} value="27/11/2021 07:48 AM" fullWidth id="outlined-basic" label="Start Date" variant="outlined" />
 
+
+          <TextField sx={{ mt: 4 }} value="27/11/2021 07:48 AM" fullWidth id="outlined-basic" label="End Date" variant="outlined" />
+
+
+          <ColorSinglePicker sx={{ mt: 4 }} colors={COLOR_OPTIONS} />
 
         </DialogContent>
         <DialogActions>
@@ -240,6 +255,8 @@ export default function Calendar() {
 
         {
           search === "John Doe" ? (
+            <>
+            <h2 style={{ marginTop: '2rem' }}>Calender 1</h2>
             <Card>
               <CalendarStyle>
                 <CalendarToolbar
@@ -256,10 +273,12 @@ export default function Calendar() {
                   droppable
                   selectable
                   events={[
-                    { title: '🔴This is a event 1', date: '2021-10-01' },
+                    { title: '🌀This is a event 1', date: '2021-10-01' },
                     { title: '🌟Call', date: '2021-11-21' },
-                    { title: '🌟Work', date: '2021-11-16' },
-                    { title: '🌟Done', date: '2021-11-10' }
+                    { title: '🌀Work', date: '2021-11-16' },
+                    { title: '🌟Done', date: '2021-11-10' },
+                    { title: '🌀Done', date: '2021-11-24' },
+                    { title: '🌟Done', date: '2021-11-18' }
                   ]}
                   ref={calendarRef}
                   rerenderDelay={10}
@@ -279,7 +298,48 @@ export default function Calendar() {
                 />
               </CalendarStyle>
             </Card>
+
+            <h2 style={{ marginTop: '2rem' }}>Calender 2</h2>
+            <Card>
+              <CalendarStyle>
+                <CalendarToolbar
+                  date={date}
+                  view={view}
+                  onNextDate={handleClickDateNext}
+                  onPrevDate={handleClickDatePrev}
+                  onToday={handleClickToday}
+                  onChangeView={handleChangeView}
+                />
+                <FullCalendar
+                  weekends
+                  editable
+                  droppable
+                  selectable
+                  events={events}
+                  ref={calendarRef}
+                  rerenderDelay={10}
+                  initialDate={date}
+                  initialView={view}
+                  dayMaxEventRows={3}
+                  eventDisplay="block"
+                  headerToolbar={false}
+                  allDayMaintainDuration
+                  eventResizableFromStart
+                  select={handleSelectRange}
+                  eventDrop={handleDropEvent}
+                  eventClick={handleSelectEvent}
+                  eventResize={handleResizeEvent}
+                  height={isMobile ? 'auto' : 720}
+                  plugins={[listPlugin, dayGridPlugin, timelinePlugin, timeGridPlugin, interactionPlugin]}
+                />
+              </CalendarStyle>
+            </Card>
+
+
+            </>
           ) : (
+            <>
+            <h2>Calender 1</h2>
             <Card>
               <CalendarStyle>
                 <CalendarToolbar
@@ -298,8 +358,9 @@ export default function Calendar() {
                   events={[
                     { title: '🌟This is a event 1', date: '2021-10-01' },
                     { title: '🌟Call', date: '2021-11-28' },
-                    { title: '🔴Work', date: '2021-11-19' },
-                    { title: '🌟Done', date: '2021-11-12' }
+                    { title: '🌀Work', date: '2021-11-19' },
+                    { title: '🌟Done', date: '2021-11-12' },
+                    { title: '🌀Done', date: '2021-11-24' },
                   ]}
                   ref={calendarRef}
                   rerenderDelay={10}
@@ -319,6 +380,44 @@ export default function Calendar() {
                 />
               </CalendarStyle>
             </Card>
+
+            <h2 style={{ marginTop: '2rem' }}>Calender 2</h2>
+            <Card>
+              <CalendarStyle>
+                <CalendarToolbar
+                  date={date}
+                  view={view}
+                  onNextDate={handleClickDateNext}
+                  onPrevDate={handleClickDatePrev}
+                  onToday={handleClickToday}
+                  onChangeView={handleChangeView}
+                />
+                <FullCalendar
+                  weekends
+                  editable
+                  droppable
+                  selectable
+                  events={events}
+                  ref={calendarRef}
+                  rerenderDelay={10}
+                  initialDate={date}
+                  initialView={view}
+                  dayMaxEventRows={3}
+                  eventDisplay="block"
+                  headerToolbar={false}
+                  allDayMaintainDuration
+                  eventResizableFromStart
+                  select={handleSelectRange}
+                  eventDrop={handleDropEvent}
+                  eventClick={handleSelectEvent}
+                  eventResize={handleResizeEvent}
+                  height={isMobile ? 'auto' : 720}
+                  plugins={[listPlugin, dayGridPlugin, timelinePlugin, timeGridPlugin, interactionPlugin]}
+                />
+              </CalendarStyle>
+            </Card>
+
+            </>
           )
         }
 
