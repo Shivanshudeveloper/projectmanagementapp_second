@@ -273,12 +273,12 @@ export default function Calendar() {
                   droppable
                   selectable
                   events={[
-                    { title: '🌀This is a event 1', date: '2021-10-01' },
-                    { title: '🌟Call', date: '2021-11-21' },
-                    { title: '🌀Work', date: '2021-11-16' },
-                    { title: '🌟Done', date: '2021-11-10' },
-                    { title: '🌀Done', date: '2021-11-24' },
-                    { title: '🌟Done', date: '2021-11-18' }
+                    { title: '🌀Work at 1 PM', date: '2021-12-01',backgroundColor: 'white', textColor: 'purple' },
+                    { title: '🌟Call at 5 PM', date: '2021-12-21',backgroundColor: 'white', textColor: 'green' },
+                    { title: '🌀Work at 4 PM', date: '2021-12-16',backgroundColor: 'white', textColor: 'gray' },
+                    { title: '🌟Done at 8 PM', date: '2021-12-10',backgroundColor: 'white', textColor: 'yellow' },
+                    { title: '🌀Done at 10 AM', date: '2021-12-24',backgroundColor: 'white', textColor: 'blue' },
+                    { title: '🌟Done at 11 AM', date: '2021-12-18',backgroundColor: 'white', textColor: 'red' }
                   ]}
                   ref={calendarRef}
                   rerenderDelay={10}
@@ -356,11 +356,12 @@ export default function Calendar() {
                   droppable
                   selectable
                   events={[
-                    { title: '🌟This is a event 1', date: '2021-10-01' },
-                    { title: '🌟Call', date: '2021-11-28' },
-                    { title: '🌀Work', date: '2021-11-19' },
-                    { title: '🌟Done', date: '2021-11-12' },
-                    { title: '🌀Done', date: '2021-11-24' },
+                    { title: '🌀Work at 1 PM', date: '2021-12-02',backgroundColor: 'white', textColor: 'red' },
+                    { title: '🌟Call at 5 PM', date: '2021-12-10',backgroundColor: 'white', textColor: 'green' },
+                    { title: '🌀Work at 4 PM', date: '2021-12-12',backgroundColor: 'white', textColor: 'gray' },
+                    { title: '🌟Done at 8 PM', date: '2021-12-09',backgroundColor: 'white', textColor: 'yellow' },
+                    { title: '🌀Done at 10 AM', date: '2021-12-18',backgroundColor: 'white', textColor: 'blue' },
+                    { title: '🌟Done at 11 AM', date: '2021-12-016',backgroundColor: 'white', textColor: 'red' }
                   ]}
                   ref={calendarRef}
                   rerenderDelay={10}
