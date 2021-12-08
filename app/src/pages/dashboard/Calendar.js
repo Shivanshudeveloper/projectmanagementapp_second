@@ -198,6 +198,10 @@ export default function Calendar() {
       >
         <DialogTitle id="alert-dialog-title">Event Details</DialogTitle>
         <DialogContent>
+
+          <center>
+            <img alt="Icon" src="https://img.icons8.com/fluency/48/000000/star.png"/>
+          </center>
           
           <TextField sx={{ mt: 4 }} value="Title Test" fullWidth id="outlined-basic" label="Title" variant="outlined" />
           
