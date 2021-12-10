@@ -4,6 +4,8 @@ import { experimentalStyled as styled, alpha } from "@material-ui/core/styles";
 
 const CalendarStyle = styled("div")(({ theme }) => ({
   width: "calc(100% + 2px)",
+  fontSize: '30px',
+  textAlign: 'center',
   marginLeft: -1,
   marginBottom: -1,
   "& .fc": {

@@ -561,11 +561,9 @@ export default function Calendar() {
                       events={[
                         {
                           title: "🌀",
-
                           date: "2021-12-01",
                           backgroundColor: "white",
                           textColor: "green",
-                          // description: "Work",
                         },
                         {
                           title: "🌟",
