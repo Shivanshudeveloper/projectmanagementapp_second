@@ -10,7 +10,6 @@ import interactionPlugin from "@fullcalendar/interaction";
 import { Icon } from "@iconify/react";
 import { useSnackbar } from "notistack";
 import plusFill from "@iconify/icons-eva/plus-fill";
-import ReactTooltip from "react-tooltip";
 import { useState, useRef, useEffect } from "react";
 // import {
 //   Scheduler,
@@ -566,42 +565,37 @@ export default function Calendar() {
                           date: "2021-12-01",
                           backgroundColor: "white",
                           textColor: "green",
-                          description: "Work",
+                          // description: "Work",
                         },
                         {
                           title: "🌟",
                           date: "2021-12-21",
                           backgroundColor: "white",
                           textColor: "green",
-                          description: "Call",
                         },
                         {
                           title: "🌀",
                           date: "2021-12-16",
                           backgroundColor: "white",
                           textColor: "gray",
-                          description: "Work",
                         },
                         {
                           title: "🌟",
                           date: "2021-12-10",
                           backgroundColor: "white",
                           textColor: "brown",
-                          description: "Done",
                         },
                         {
                           title: "🌀",
                           date: "2021-12-24",
                           backgroundColor: "white",
                           textColor: "blue",
-                          description: "Work",
                         },
                         {
                           title: "🌟",
                           date: "2021-12-18",
                           backgroundColor: "white",
                           textColor: "red",
-                          description: "Done",
                         },
                       ]}
                       ref={calendarRef}
@@ -630,48 +624,6 @@ export default function Calendar() {
                   </StyleWrapper>
                 </CalendarStyle>
               </Card>
-
-              <h2 style={{ marginTop: "2rem" }}>Calender 2</h2>
-              <Card>
-                <CalendarStyle>
-                  <CalendarToolbar
-                    date={date}
-                    view={view}
-                    onNextDate={handleClickDateNext}
-                    onPrevDate={handleClickDatePrev}
-                    onToday={handleClickToday}
-                    onChangeView={handleChangeView}
-                  />
-                  <FullCalendar
-                    weekends
-                    editable
-                    droppable
-                    selectable
-                    events={events}
-                    ref={calendarRef}
-                    rerenderDelay={10}
-                    initialDate={date}
-                    initialView={view}
-                    dayMaxEventRows={3}
-                    eventDisplay="block"
-                    headerToolbar={false}
-                    allDayMaintainDuration
-                    eventResizableFromStart
-                    select={handleSelectRange}
-                    eventDrop={handleDropEvent}
-                    eventClick={handleSelectEvent}
-                    eventResize={handleResizeEvent}
-                    height={isMobile ? "auto" : 720}
-                    plugins={[
-                      listPlugin,
-                      dayGridPlugin,
-                      timelinePlugin,
-                      timeGridPlugin,
-                      interactionPlugin,
-                    ]}
-                  />
-                </CalendarStyle>
-              </Card>
             </>
           ) : (
             <>
@@ -697,42 +649,36 @@ export default function Calendar() {
                         date: "2021-12-02",
                         backgroundColor: "white",
                         textColor: "red",
-                        description: "Work",
                       },
                       {
                         title: "🌟",
                         date: "2021-12-10",
                         backgroundColor: "white",
                         textColor: "green",
-                        description: "Call",
                       },
                       {
                         title: "🌀",
                         date: "2021-12-12",
                         backgroundColor: "white",
                         textColor: "gray",
-                        description: "Work",
                       },
                       {
                         title: "🌟",
                         date: "2021-12-09",
                         backgroundColor: "white",
                         textColor: "yellow",
-                        description: "Done",
                       },
                       {
                         title: "🌀",
                         date: "2021-12-18",
                         backgroundColor: "white",
                         textColor: "blue",
-                        description: "Done",
                       },
                       {
                         title: "🌟",
                         date: "2021-12-016",
                         backgroundColor: "white",
                         textColor: "red",
-                        description: "Done",
                       },
                     ]}
                     ref={calendarRef}
@@ -757,48 +703,6 @@ export default function Calendar() {
                       interactionPlugin,
                     ]}
                     eventContent={renderEventContent}
-                  />
-                </CalendarStyle>
-              </Card>
-
-              <h2 style={{ marginTop: "2rem" }}>Calender 2</h2>
-              <Card>
-                <CalendarStyle>
-                  <CalendarToolbar
-                    date={date}
-                    view={view}
-                    onNextDate={handleClickDateNext}
-                    onPrevDate={handleClickDatePrev}
-                    onToday={handleClickToday}
-                    onChangeView={handleChangeView}
-                  />
-                  <FullCalendar
-                    weekends
-                    editable
-                    droppable
-                    selectable
-                    events={events}
-                    ref={calendarRef}
-                    rerenderDelay={10}
-                    initialDate={date}
-                    initialView={view}
-                    dayMaxEventRows={3}
-                    eventDisplay="block"
-                    headerToolbar={false}
-                    allDayMaintainDuration
-                    eventResizableFromStart
-                    select={handleSelectRange}
-                    eventDrop={handleDropEvent}
-                    eventClick={handleSelectEvent}
-                    eventResize={handleResizeEvent}
-                    height={isMobile ? "auto" : 720}
-                    plugins={[
-                      listPlugin,
-                      dayGridPlugin,
-                      timelinePlugin,
-                      timeGridPlugin,
-                      interactionPlugin,
-                    ]}
                   />
                 </CalendarStyle>
               </Card>
