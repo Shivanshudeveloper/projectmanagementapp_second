@@ -76,6 +76,7 @@ import {
   CalendarForm,
   CalendarStyle,
   CalendarToolbar,
+  CalendarStyle2
 } from "../../components/_dashboard/calendar";
 import Appbar from "../../components/Appbar";
 import ColorSinglePicker from "../../components/ColorSinglePicker";
@@ -625,7 +626,7 @@ export default function Calendar() {
 
               <h2 style={{ marginTop: "2rem" }}>Calender 2</h2>
               <Card>
-                <CalendarStyle>
+                <CalendarStyle2>
                   <CalendarToolbar
                     date={date}
                     view={view}
@@ -662,7 +663,7 @@ export default function Calendar() {
                       interactionPlugin,
                     ]}
                   />
-                </CalendarStyle>
+                </CalendarStyle2>
               </Card>
             </>
           ) : (
@@ -749,7 +750,7 @@ export default function Calendar() {
 
               <h2 style={{ marginTop: "2rem" }}>Calender 2</h2>
               <Card>
-                <CalendarStyle>
+                <CalendarStyle2>
                   <CalendarToolbar
                     date={date}
                     view={view}
@@ -786,7 +787,7 @@ export default function Calendar() {
                       interactionPlugin,
                     ]}
                   />
-                </CalendarStyle>
+                </CalendarStyle2>
               </Card>
             </>
           )}
