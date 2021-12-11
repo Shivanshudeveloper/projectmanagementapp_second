@@ -622,6 +622,48 @@ export default function Calendar() {
                   </StyleWrapper>
                 </CalendarStyle>
               </Card>
+
+              <h2 style={{ marginTop: "2rem" }}>Calender 2</h2>
+              <Card>
+                <CalendarStyle>
+                  <CalendarToolbar
+                    date={date}
+                    view={view}
+                    onNextDate={handleClickDateNext}
+                    onPrevDate={handleClickDatePrev}
+                    onToday={handleClickToday}
+                    onChangeView={handleChangeView}
+                  />
+                  <FullCalendar
+                    weekends
+                    editable
+                    droppable
+                    selectable
+                    events={events}
+                    ref={calendarRef}
+                    rerenderDelay={10}
+                    initialDate={date}
+                    initialView={view}
+                    dayMaxEventRows={3}
+                    eventDisplay="block"
+                    headerToolbar={false}
+                    allDayMaintainDuration
+                    eventResizableFromStart
+                    select={handleSelectRange}
+                    eventDrop={handleDropEvent}
+                    eventClick={handleSelectEvent}
+                    eventResize={handleResizeEvent}
+                    height={isMobile ? "auto" : 720}
+                    plugins={[
+                      listPlugin,
+                      dayGridPlugin,
+                      timelinePlugin,
+                      timeGridPlugin,
+                      interactionPlugin,
+                    ]}
+                  />
+                </CalendarStyle>
+              </Card>
             </>
           ) : (
             <>
@@ -701,6 +743,48 @@ export default function Calendar() {
                       interactionPlugin,
                     ]}
                     eventContent={renderEventContent}
+                  />
+                </CalendarStyle>
+              </Card>
+
+              <h2 style={{ marginTop: "2rem" }}>Calender 2</h2>
+              <Card>
+                <CalendarStyle>
+                  <CalendarToolbar
+                    date={date}
+                    view={view}
+                    onNextDate={handleClickDateNext}
+                    onPrevDate={handleClickDatePrev}
+                    onToday={handleClickToday}
+                    onChangeView={handleChangeView}
+                  />
+                  <FullCalendar
+                    weekends
+                    editable
+                    droppable
+                    selectable
+                    events={events}
+                    ref={calendarRef}
+                    rerenderDelay={10}
+                    initialDate={date}
+                    initialView={view}
+                    dayMaxEventRows={3}
+                    eventDisplay="block"
+                    headerToolbar={false}
+                    allDayMaintainDuration
+                    eventResizableFromStart
+                    select={handleSelectRange}
+                    eventDrop={handleDropEvent}
+                    eventClick={handleSelectEvent}
+                    eventResize={handleResizeEvent}
+                    height={isMobile ? "auto" : 720}
+                    plugins={[
+                      listPlugin,
+                      dayGridPlugin,
+                      timelinePlugin,
+                      timeGridPlugin,
+                      interactionPlugin,
+                    ]}
                   />
                 </CalendarStyle>
               </Card>
