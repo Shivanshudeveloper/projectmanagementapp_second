@@ -4,10 +4,10 @@ import { experimentalStyled as styled, alpha } from "@material-ui/core/styles";
 
 const CalendarStyle = styled("div")(({ theme }) => ({
   width: "calc(100% + 2px)",
-  fontSize: '30px',
-  textAlign: 'center',
-  marginLeft: -1,
-  marginBottom: -1,
+  fontSize: "5vh",
+  textAlign: "center",
+  marginLeft: 0,
+  marginBottom: 0,
   "& .fc": {
     "--fc-list-event-dot-width": "8px",
     "--fc-border-color": theme.palette.divider,
@@ -29,7 +29,7 @@ const CalendarStyle = styled("div")(({ theme }) => ({
     "& th": { borderColor: "transparent" },
     "& .fc-col-header-cell-cushion": {
       ...theme.typography.subtitle2,
-      padding: "13px 0",
+      padding: "0 0",
     },
   },
 
@@ -37,27 +37,28 @@ const CalendarStyle = styled("div")(({ theme }) => ({
   "& .fc .fc-event": {
     borderColor: "transparent",
     backgroundColor: "transparent",
+    width: "100%",
+    height: "100%",
   },
   "& .fc .fc-event .fc-event-main": {
-    padding: "2px 4px",
-    borderRadius: 4,
     backgroundColor: theme.palette.common.white,
     transition: theme.transitions.create("filter"),
-    height: "100px",
+
     "&:hover": { filter: "brightness(0.92)" },
     "&:before,&:after": {
-      top: '-35px',
-      left: '-2px',
-      width: "112%",
-      height: "150%",
+      top: "-30px",
+      left: "0px",
+      right: "0px",
+      width: "100%",
+      height: "20vh",
+      maxHeight: "100px",
       content: "''",
-      borderRadius: 4,
+      borderRadius: "4px",
+      zIndex: -1,
       position: "absolute",
       boxSizing: "border-box",
     },
-    ".fc-event-main b": {
-      fontSize: "4em",
-    },
+    ".fc-event-main b": {},
     "&:before": {
       zIndex: 8,
       opacity: 0.32,
@@ -69,9 +70,7 @@ const CalendarStyle = styled("div")(({ theme }) => ({
       backgroundColor: "currentColor",
     },
   },
-  "& .fc .fc-event .fc-event-main-frame": {
-    lineHeight: "20px",
-  },
+  "& .fc .fc-event .fc-event-main-frame": {},
   "& .fc .fc-daygrid-event .fc-event-title": {
     overflow: "hidden",
     whiteSpace: "nowrap",
@@ -102,12 +101,10 @@ const CalendarStyle = styled("div")(({ theme }) => ({
     transition: theme.transitions.create("opacity"),
     "&:hover": { opacity: 1 },
   },
-  "& .fc .fc-more-popover .fc-popover-body": {
-    padding: theme.spacing(1.5),
-  },
+  "& .fc .fc-more-popover .fc-popover-body": {},
   "& .fc .fc-popover-body": {
     "& .fc-daygrid-event.fc-event-start, & .fc-daygrid-event.fc-event-end": {
-      margin: "2px 0",
+      margin: "0 0",
     },
   },
 
@@ -120,15 +117,14 @@ const CalendarStyle = styled("div")(({ theme }) => ({
   },
   "& .fc .fc-daygrid-day-number": {
     ...theme.typography.body2,
-    padding: theme.spacing(1, 1, 0),
   },
   "& .fc .fc-daygrid-event": {
     marginTop: 4,
   },
   "& .fc .fc-daygrid-event.fc-event-start, & .fc .fc-daygrid-event.fc-event-end":
     {
-      marginLeft: 4,
-      marginRight: 4,
+      marginLeft: 0,
+      marginRight: 0,
     },
   "& .fc .fc-daygrid-more-link": {
     ...theme.typography.caption,

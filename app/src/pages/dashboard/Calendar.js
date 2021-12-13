@@ -76,7 +76,7 @@ import {
   CalendarForm,
   CalendarStyle,
   CalendarToolbar,
-  CalendarStyle2
+  CalendarStyle2,
 } from "../../components/_dashboard/calendar";
 import Appbar from "../../components/Appbar";
 import ColorSinglePicker from "../../components/ColorSinglePicker";
@@ -402,13 +402,16 @@ export default function Calendar() {
     },
   ];
   function renderEventContent(eventInfo) {
-    console.log(eventInfo);
     return (
-      <>
-        <b>{eventInfo.event._def.title}</b>
-        <br />
-        <p>{eventInfo.event._def.extendedProps.description}</p>
-      </>
+      <div
+        style={{
+          position: "relative",
+          width: "100%",
+          height: "100%",
+        }}
+      >
+        <center>{eventInfo.event._def.title}</center>
+      </div>
     );
   }
   const commitChanges = ({ added, changed, deleted }) => {
