@@ -36,7 +36,7 @@ export default function LoginForm() {
   const { enqueueSnackbar, closeSnackbar } = useSnackbar();
   const [showPassword, setShowPassword] = useState(false);
 
-  const initialState = { email: "", password: "" };
+  const initialState = { email: "test@gmail.com", password: "1234567890" };
   const [formData, setFormData] = useState(initialState);
   const navigate = useNavigate();
 
