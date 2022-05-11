@@ -37,11 +37,10 @@ const CalendarStyle2 = styled("div")(({ theme }) => ({
     backgroundColor: "transparent",
   },
   "& .fc .fc-event .fc-event-main": {
-    padding: "2px 4px",
     borderRadius: 4,
     backgroundColor: theme.palette.common.white,
     transition: theme.transitions.create("filter"),
-    height: "100px",
+
     "&:hover": { filter: "brightness(0.92)" },
     "&:before,&:after": {
       top: 0,
